@@ -12,6 +12,7 @@
 <meta property="og:description" content="Bringing property title records on-chain. Coming soon. A Bay Area Media brand.">
 <meta property="og:url" content="https://nftitlemint.com/">
 <meta property="og:type" content="website">
+<link rel="preload" as="image" href="assets/skyline-sf.webp" type="image/webp">
 <style>
 :root{--navy:#0f1f3a;--navy2:#1a2f55;--accent:#e0b45c;--ink:#0b1324;--slate:#475569;--line:#e2e8f0}
 *{box-sizing:border-box}
@@ -28,11 +29,22 @@ p.lead{font-size:1.12rem;color:#cbd5e1;margin:0 auto 36px;max-width:520px}
 .contact{font-size:.98rem;color:#cbd5e1}
 a{color:#fff;text-decoration:underline;text-decoration-color:rgba(224,180,92,.6);text-underline-offset:3px}
 a:hover{text-decoration-color:var(--accent)}
-footer{padding:24px;text-align:center;font-size:.88rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)}
+footer{padding:24px;background:rgba(11,19,36,.55);text-align:center;font-size:.88rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)}
 footer a{color:#e2e8f0}
+.hero-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--navy)}
+.hero-bg .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 30s infinite;transform:scale(1.04)}
+.hero-bg .sf{background-image:url(assets/skyline-sf.jpg);background-image:image-set(url(assets/skyline-sf.webp) type("image/webp"),url(assets/skyline-sf.jpg) type("image/jpeg"));opacity:1;animation-delay:0s}
+.hero-bg .nyc{background-image:url(assets/skyline-nyc.jpg);background-image:image-set(url(assets/skyline-nyc.webp) type("image/webp"),url(assets/skyline-nyc.jpg) type("image/jpeg"));animation-delay:10s}
+.hero-bg .chi{background-image:url(assets/skyline-chicago.jpg);background-image:image-set(url(assets/skyline-chicago.webp) type("image/webp"),url(assets/skyline-chicago.jpg) type("image/jpeg"));animation-delay:20s}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,19,36,.78) 0%,rgba(15,31,58,.72) 50%,rgba(11,19,36,.9) 100%)}
+@keyframes fade{0%{opacity:0}5%{opacity:1}33%{opacity:1}38%{opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hero-bg .slide{animation:none;opacity:0}.hero-bg .sf{opacity:1}}
+.credits{display:block;margin-top:6px;font-size:.74rem;color:#64748b}
+.credits a{color:#94a3b8}
 </style>
 </head>
 <body>
+<div class="hero-bg" aria-hidden="true"><div class="slide sf"></div><div class="slide nyc"></div><div class="slide chi"></div></div>
 <main>
   <div class="box">
     <div class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#16294b" stroke="rgba(224,180,92,.45)"/><path d="M18 46V18l28 28V18" fill="none" stroke="#e0b45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>NFTitleMint</span></div>
@@ -43,6 +55,6 @@ footer a{color:#e2e8f0}
     <p class="contact">Questions? Email <a href="mailto:john@number0ne.com?subject=NFTitleMint">john@number0ne.com</a></p>
   </div>
 </main>
-<footer>A Bay Area Media brand &middot; <a href="https://bamedia.agency/">bamedia.agency</a> &middot; &copy; 2026 NFTitleMint</footer>
+<footer>A Bay Area Media brand &middot; <a href="https://bamedia.agency/">bamedia.agency</a> &middot; &copy; 2026 NFTitleMint<span class="credits">Photos: San Francisco by <a href="https://unsplash.com/photos/a-panoramic-view-of-san-francisco-sxf_g14LcGg">Sebastian Jacobsen</a> (Unsplash) &middot; New York by <a href="https://unsplash.com/photos/a-new-york-city-skyline-view-over-water-_n6NUtw924k">Zoshua Colah</a> (Unsplash) &middot; Chicago by <a href="https://www.pexels.com/photo/chicago-skyline-26821665/">Kelly</a> (Pexels)</span></footer>
 </body>
 </html>
